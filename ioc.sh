@@ -89,18 +89,18 @@ class ${repoName^}${provider} extends ServiceProvider
      *
      * @return void
      */
-     
+
     public function boot()
     {
         //
     }
-    
+
     /**
      * Register the application services.
      *
      * @return void
      */
-     
+
     public function register()
     {
         \$this->app->bind('App\Repositories\\${repoName^}\\${repoName^}Contract',
@@ -113,12 +113,6 @@ class ${repoName^}${provider} extends ServiceProvider
 }
 bindContractToRepository
 
-# Creates view folder
-function createViews {
-    mkdir ./resources/views/${repoName,,} && touch ./resources/views/${repoName,,}/create.blade.php && touch ./resources/views/${repoName,,}/edit.blade.php && touch ./resources/views/${repoName,,}/index.blade.php
-    echo "*$(tput setaf 6)Created the index, create and edit views successfully.$(tput sgr0)"
-}
-createViews
 
 function controllerCrudFunctions {
 echo "<?php
@@ -135,37 +129,37 @@ class ${repoName^}Controller extends Controller
     public function __construct(${repoName^}Contract \$${repoName,}Contract) {
         \$this->repo = \$${repoName,}Contract;
     }
-    
+
     public function index()
     {
         //
     }
-    
+
     public function create()
     {
         //
     }
-    
+
     public function store(Request \$request)
     {
         //
     }
-    
+
     public function show(\$id)
     {
         //
     }
-    
+
     public function edit(\$id)
     {
         //
     }
-    
+
     public function update(Request \$request, \$id)
     {
         //
     }
-    
+
     public function delete(\$id)
     {
         //

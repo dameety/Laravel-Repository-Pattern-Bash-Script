@@ -15,7 +15,6 @@ After running the bash script, you will be prompted for a module name. After tha
 - A Repositories directory which houses your repository files is created in the **app** directory.
 - A Repository and Contract file is created inside **app/Repositories/module_name** directory.
 - Your repository and contract files are bound inside the respective Service Providers.
-- Three view files are created inside the **resources/views/module_name** directory and they are: **index.blade.php**, **create.blade.php** and **edit.blade.php**.
 
 ## Contributors
 [Eric Renouf](http://stackoverflow.com/users/4687135/eric-renouf/) on [Stackoverflow](http://stackoverflow.com/)
