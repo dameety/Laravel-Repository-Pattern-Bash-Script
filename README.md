@@ -1,10 +1,18 @@
-#What
-A simple bash script to create a scaffold for the repository pattern.
+##What?
+A simple bash script to scaffold repository pattern for your model, with controller and including it in service provider.
 
 ## How to use
-Add the file to the root of your Laravel project directory and  run it like so: **./ioc.sh**.
+Add the file to the root of your Laravel project directory and type this:
 
-In cases where you're going to use it on an online development environment, you need to assign permission to make the script executable like so: **chmod +x ioc.sh**
+```
+./repositorypattern.sh
+```
+
+In cases where you're going to use it on an online development environment, you need to assign permission to make the script executable, type this and press enter:
+
+```
+chmod +x ioc.sh
+```
 
 ## What it does
 After running the bash script, you will be prompted for a module name. After that input, the following is performed as a result of that:
