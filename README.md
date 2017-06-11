@@ -1,8 +1,8 @@
-##What?
+## What?
 A simple bash script to scaffold repository pattern for your model, with controller and including it in service provider.
 
 ## How to use
-Add the file to the root of your Laravel project directory and type this:
+Add the file to the root of your Laravel project directory, type this and press enter:
 
 ```
 ./repositorypattern.sh
