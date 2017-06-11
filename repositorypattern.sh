@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # Variables.
-contract="Contract.php"
+# contract="Repository.php"
 eloquent="Eloquent"
 repository="Repository.php"
 provider="ServiceProvider"
+ext=".php"
 controller="Controller"
 FILE="./config/app.php"
 
@@ -31,11 +32,12 @@ function createRepositoryDirectory {
     mkdir ./app/Repositories 2> /dev/null
     echo "*$(tput setaf 6)Repositories directory created successfully inside the App directory.$(tput sgr0)"
 
-    mkdir ./app/Repositories/${repoName^} && touch ./app/Repositories/${repoName^}/${repoName^}${contract} && touch ./app/Repositories/${repoName^}/${eloquent}${repoName^}${repository}
+    mkdir ./app/Repositories/${repoName^} && touch ./app/Repositories/${repoName^}/${repoName^}${repository} && touch ./app/Repositories/${repoName^}/${eloquent}${repoName^}${ext}
     echo "*$(tput setaf 6)Repository and Contract files created successfully.$(tput sgr0)"
 
 }
 createRepositoryDirectory
+
 
 function registerServiceProvider {
     # register service provider inside config/app.php
@@ -51,29 +53,32 @@ function registerServiceProvider {
 }
 registerServiceProvider
 
+
 function writeContractBoilerPlate {
 echo "<?php
 
 namespace App\Repositories\\${repoName^};
 
-interface ${repoName^}Contract {
+interface ${repoName^}Repository {
     //
-}" > ./app/Repositories/${repoName^}/${repoName^}${contract}
+}" > ./app/Repositories/${repoName^}/${repoName^}${repository}
 }
 writeContractBoilerPlate
+
 
 function writeRepositoryBoilerPlate {
 echo "<?php
 
 namespace App\Repositories\\${repoName^};
 
-use App\Repositories\\${repoName^}\\${repoName^}Contract;
+use App\Repositories\\${repoName^}\\${repoName^}Repository;
 
-class ${eloquent}${repoName^}Repository implements ${repoName^}Contract {
+class ${eloquent}${repoName^} implements ${repoName^}Repository {
     //
-}" > ./app/Repositories/${repoName^}/${eloquent}${repoName^}${repository}
+}" > ./app/Repositories/${repoName^}/${eloquent}${repoName^}${ext}
 }
 writeRepositoryBoilerPlate
+
 
 function bindContractToRepository {
 echo "<?php
@@ -103,8 +108,8 @@ class ${repoName^}${provider} extends ServiceProvider
 
     public function register()
     {
-        \$this->app->bind('App\Repositories\\${repoName^}\\${repoName^}Contract',
-            'App\Repositories\\${repoName^}\\${eloquent}${repoName^}Repository');
+        \$this->app->bind('App\Repositories\\${repoName^}\\${repoName^}Repository',
+            'App\Repositories\\${repoName^}\\${eloquent}${repoName^}');
     }
 }" > ./app/Providers/${repoName^}${provider}.php
     if [[ $? -eq 0 ]]; then
@@ -120,14 +125,14 @@ echo "<?php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\\${repoName^}\\${repoName^}Contract;
+use App\Repositories\\${repoName^}\\${repoName^}Repository;
 
 class ${repoName^}Controller extends Controller
 {
-    protected \$repo;
+    protected \$${repoName,};
 
-    public function __construct(${repoName^}Contract \$${repoName,}Contract) {
-        \$this->repo = \$${repoName,}Contract;
+    public function __construct(${repoName^}Repository \$${repoName,}) {
+        \$this->\$${repoName,} = \$${repoName,};
     }
 
     public function index()

@@ -1,5 +1,5 @@
-#Laravel-IOC-Module
-Laravel made available the IoC[Inversion of Control] container for developers. This bash script is aimed at speeding up development for Laravel developers.
+#What
+A simple bash script to create a scaffold for the repository pattern.
 
 ## How to use
 Add the file to the root of your Laravel project directory and  run it like so: **./ioc.sh**.
@@ -16,7 +16,5 @@ After running the bash script, you will be prompted for a module name. After tha
 - A Repository and Contract file is created inside **app/Repositories/module_name** directory.
 - Your repository and contract files are bound inside the respective Service Providers.
 
-## Contributors
-[Eric Renouf](http://stackoverflow.com/users/4687135/eric-renouf/) on [Stackoverflow](http://stackoverflow.com/)
-
-> *Made with love from [nHub Nigeria](http://nhubnigeria.com/)*
+## Credits
+- [Ohssie](https://github.com/Ohssie/laravel-IOC-module)
