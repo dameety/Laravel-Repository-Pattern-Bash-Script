@@ -13,8 +13,8 @@ After running the bash script, you will be prompted for a module name. After tha
 - A Service provider is created in **app/Providers** and registered inside **config/app.php** under the **providers** section.
 - A Laravel Controller is created for you in **app/Http/Controllers** which implements all CRUD methods with necessary Dependency Injections.
 - A Repositories directory which houses your repository files is created in the **app** directory.
-- A Repository and Contract file is created inside **app/Repositories/module_name** directory.
-- Your repository and contract files are bound inside the respective Service Providers.
+- A **modulename** repository interface file and eloquent **modulename** file is created inside **app/Repositories/module_name** directory.
+- The **modulename** repository interface and eloquent **modulename** are bound inside the respective Service Providers.
 
 ## Credits
 - [Ohssie](https://github.com/Ohssie/laravel-IOC-module)
